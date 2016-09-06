@@ -18,8 +18,8 @@ public class movement : MonoBehaviour {
     }
     void FixedUpdate()
     {
-        float moveHorizontal = Input.GetAxis("Horizontal");
-        float moveVertical = Input.GetAxis("Vertical");
+      //  float moveHorizontal = Input.GetAxis("Horizontal");
+       // float moveVertical = Input.GetAxis("Vertical");
 
         Vector3 rotation = GetComponent<Transform>().eulerAngles;
         Vector3 normal = new Vector3(Mathf.Sin(rotation.y), Mathf.Sin(rotation.x)*Mathf.Cos(rotation.z), Mathf.Cos(rotation.x)*Mathf.Cos(rotation.y));
