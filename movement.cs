@@ -5,7 +5,9 @@ public class movement : MonoBehaviour {
 
     // Use this for initialization
     public Rigidbody rb;
+    public Rigidbody hullRB;
     public float speed;
+    public float mastSpeed;
     public GameObject windObj;
     public Vector3 windVec;
     // Update is called once per frame
@@ -14,6 +16,9 @@ public class movement : MonoBehaviour {
         rb = GetComponent<Rigidbody>();
         windObj = GameObject.Find("windObj");
         windVec = windObj.GetComponent<wind>().windVec;
+
+        GameObject mastObj = GameObject.Find("Mast");
+        hullRB = mastObj.GetComponent<Rigidbody>();
 
     }
     void FixedUpdate()
@@ -25,6 +30,6 @@ public class movement : MonoBehaviour {
         Vector3 normal = new Vector3(Mathf.Sin(rotation.y), Mathf.Sin(rotation.x)*Mathf.Cos(rotation.z), Mathf.Cos(rotation.x)*Mathf.Cos(rotation.y));
         Vector3 toMove = Vector3.Project(windVec, normal);
         rb.AddForce(toMove*speed);
-
+        hullRB.AddForce(toMove * mastSpeed);
     } 
 }
