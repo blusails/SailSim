@@ -13,7 +13,7 @@ public class randTerrain
     [MenuItem("GameObject/Create Other/rand terrain...")]
     static public void randomizeTerrain()
     {
-        GameObject tObj = GameObject.Find("fuckinTerrain");
+        GameObject tObj = GameObject.Find("Terrain");
         Terrain terrain = tObj.transform.GetComponent<Terrain>();
         TerrainData tData = terrain.terrainData;
 
